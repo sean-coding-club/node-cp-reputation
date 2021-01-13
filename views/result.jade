@@ -9,12 +9,14 @@ block content
   p= 'Severity: ' + output.reputation.severity
   p= 'Confidence: ' + output.reputation.confidence
 
-  h3 Indicators
-  ul
-  each val in output.context.indications
-    li= val
+  if output.context.indications
+    h3 Indicators
+    ul
+    each val in output.context.indications
+      li= val
 
-  h3 IP Addresses
-  ul
-  each val in output.context.related_ips
-    li= val.ip + ' -> ' + val.classification + ' -> ' + val.confidence + ' Risk'
+  if output.context.related_ips
+    h3 IP Addresses
+    ul
+    each val in output.context.related_ips
+      li= val.ip + ' -> ' + val.classification + ' -> ' + val.confidence + ' Risk'
