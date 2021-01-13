@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= 'Site: ' + output.resource
+  h2= 'Risk: ' + output.risk
+
+  h3 Reputation
+  p= 'Classification: ' + output.reputation.classification
+  p= 'Severity: ' + output.reputation.severity
+  p= 'Confidence: ' + output.reputation.confidence
+
+  h3 Indicators
+  ul
+  each val in output.context.indications
+    li= val
+
+  h3 IP Addresses
+  ul
+  each val in output.context.related_ips
+    li= val.ip + ' -> ' + val.classification + ' -> ' + val.confidence + ' Risk'

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  form(name="submit" method="post")
+    p API
+    input(name="api")
+    p URL / IP / MD5
+    input(name="url")
+    p
+    button Submit
